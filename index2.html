@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="script.js"></script> -->
 </head>
 
-<body>
+<body style="width: 100%; box-sizing: border-box;">
     <div class="container-fluid extra">
         <div id="head-display">
             <h1><span>S</span>TONE <span>P</span>APPER <span>S</span>CISSOR</h1>
             <div id="displays">
-                <div id="user-dis">User :</div>
-                <div id="ai-dis">Ai :</div>
+                <div id="user-dis">USER : 0</div>
+                <div id="ai-dis">AI : 0</div>
             </div>
         </div>
         <div id="result-display">
@@ -24,28 +23,24 @@
             <div id="aiselect"></div>
             <div id="draw"></div>
         </div>
-        <div id="option-dispaly">
+        <div id="option-display">
             <div id="div1"><button type="button" id="stone" onclick="selecting(1)"><img
                         src="https://img.pikbest.com/png-images/qiantu/cartoon-stone-vector_2601891.png!sw800"
                         alt=""></button></div>
             <div id="div2"><button type="button" id="paper" onclick="selecting(2)"><img
                         src="https://thumb.ac-illust.com/08/081edf135a843503d5cf31957f950375_t.jpeg" alt="">
-            </div></button>
+            </button></div>
             <div id="div3"><button type="button" id="scissor" onclick="selecting(3)"><img
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnl01xY1LnSqtnM-CzhTaBYD7KYyj3wvPcd6sAB7XBP4fYUJCsrC2XNpJt7EJjnCwSrqs&usqp=CAU"
-                        alt=""></div></button>
+                        alt=""></button></div>
         </div>
     </div>
 </body>
 
 
-
-
 <script>
-    let move = 10;
-    let clickCount = 0;
-    let movecount = 9;
-
+    let move = 10,clickCount = 0,movecount = 9,ai = 1, us = 1;
+   
     const button1 = document.getElementById('stone');
     const button2 = document.getElementById('paper');
     const button3 = document.getElementById('scissor');
@@ -63,24 +58,30 @@
                         document.getElementById("draw").innerHTML = "Draw";
                     } else if (ai_select == button2) {
                         document.getElementById("draw").innerHTML = "Ai win";
+                        document.getElementById("ai-dis").innerHTML = "AI : " + ai++
                     } else {
                         document.getElementById("draw").innerHTML = "You win";
+                        document.getElementById("user-dis").innerHTML = "USER : " + us++
                     }
                     break;
                 case 2:
                     if (ai_select == button1) {
                         document.getElementById("draw").innerHTML = "You win";
+                        document.getElementById("user-dis").innerHTML = "USER : " + us++
                     } else if (ai_select == button2) {
                         document.getElementById("draw").innerHTML = "Draw";
                     } else {
                         document.getElementById("draw").innerHTML = "Ai win";
+                        document.getElementById("ai-dis").innerHTML = "AI : " + ai++
                     }
                     break;
                 case 3:
                     if (ai_select == button1) {
                         document.getElementById("draw").innerHTML = "Ai win";
+                        document.getElementById("ai-dis").innerHTML = "AI : " + ai++
                     } else if (ai_select == button2) {
                         document.getElementById("draw").innerHTML = "You win";
+                        document.getElementById("user-dis").innerHTML = "USER : " + us++
                     } else {
                         document.getElementById("draw").innerHTML = "Draw";
                     }
@@ -93,10 +94,20 @@
             clickCount++;
             if(clickCount === 10) {
                 document.getElementById("div1","div2","div3").style.display = "none";
-                document.getElementById("option-dispaly").innerHTML = "<a href='index2.html'><button type='button' id='newButton'>Restart</button></a>";
-                document.getElementById("option-dispaly").style.justifyContent = "center";
-                document.getElementById("option-dispaly").style.alignItems = "center";
-                console.log("User reached the click limit.");
+                document.getElementById("option-display").innerHTML = "<a href='index2.html'><button type='button' id='newButton'>Restart</button></a>";
+                document.getElementById("option-display").style.justifyContent = "center";
+                document.getElementById("option-display").style.alignItems = "center";
+                if((ai-1)<(us-1)){
+                    document.getElementById("result-display").innerHTML =  "<div id='result' >You won 🥳</div>"
+                }else if((ai-1)>(us-1)){
+                    document.getElementById("result-display").innerHTML =  "<div id='result'>You Lost 😕</div>"
+                }else{
+                    document.getElementById("result-display").innerHTML =  "<div id='result'>Match is draw 😑</div>"
+                }
+                
+                // console.log("User reached the click limit.");
+                // console.log(ai-1);
+                // console.log(us-1);
             }
         }
     }
