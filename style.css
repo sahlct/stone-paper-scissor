@@ -42,7 +42,7 @@
     display: flex;
     gap: 40px;
 }
-#stone,#scissor,#paper{
+#div1,#div2,#div3{
     flex-grow: 1;
     
 }

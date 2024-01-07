@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game</title>
     <link rel="stylesheet" href="style.css">
+    <!-- <script src="script.js"></script> -->
 </head>
 
 <body>
@@ -22,17 +23,45 @@
             <h2>Moves Left: 10</h2>
         </div>
         <div id="option-dispaly">
-            <div id="stone"><button type="button"><img
+            <div id="div1"><button type="button" id="stone" onclick="selecting(1)"><img
                         src="https://img.pikbest.com/png-images/qiantu/cartoon-stone-vector_2601891.png!sw800"
                         alt=""></button></div>
-            <div id="paper"><button type="button"><img
+            <div id="div2"><button type="button" id="paper" onclick="selecting(2)"><img
                         src="https://thumb.ac-illust.com/08/081edf135a843503d5cf31957f950375_t.jpeg" alt="">
             </div></button>
-            <div id="scissor"><button type="button"><img
+            <div id="div3"><button type="button" id="scissor" onclick="selecting(3)"><img
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnl01xY1LnSqtnM-CzhTaBYD7KYyj3wvPcd6sAB7XBP4fYUJCsrC2XNpJt7EJjnCwSrqs&usqp=CAU"
                         alt=""></div></button>
         </div>
     </div>
 </body>
+
+
+
+
+<script>
+    let move = 10;
+
+    const button1 = document.getElementById('stone');
+    const button2 = document.getElementById('paper');
+    const button3 = document.getElementById('scissor');
+
+    const buttons = [button1, button2, button3];
+
+    function selecting(num) {
+        // switch (key) {
+        //     case value:
+                
+        //         break;
+        
+        //     default:
+        //         break;
+        // }
+        const randomIndex = Math.floor(Math.random() * buttons.length);
+        let ai_select = buttons[randomIndex];
+        console.log("Randomly selected button with: ", ai_select.id);
+        document.getElementById("ai-dis").innerHTML = "Ai :"+ ai_select.id;
+    }
+</script>
 
 </html>
