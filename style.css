@@ -119,6 +119,7 @@ span{
 }
 #result{
     background-color: rgba(255, 255, 255, 0.4);
+    min-width: 150px;
     width: 400px;
     height: 100px;
     font-size: 30px;
