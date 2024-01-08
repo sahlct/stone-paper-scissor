@@ -139,7 +139,12 @@ span{
 }
 @media screen and (max-width: 700px){
     #option-display{
-        flex-wrap: wrap;
+        min-width: 275px;
+        gap: 10px;
+        min-height: 80px;
+    }
+    #div1,#div2,#div3{
+        max-width: 80px;
     }
     #result{
         width: 180px;
