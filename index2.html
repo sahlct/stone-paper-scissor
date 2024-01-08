@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body style="width: 100%; box-sizing: border-box;">
+<body style="position: fixed; inset: 0; width: 100%; box-sizing: border-box;">
     <div class="extra">
         <div id="head-display">
             <h1><span>S</span>TONE <span>P</span>APPER <span>S</span>CISSOR</h1>
@@ -97,9 +97,9 @@
                 document.getElementById("option-display").innerHTML = "<a href='index2.html'><button type='button' id='newButton'>Restart</button></a>";
                 document.getElementById("option-display").style.justifyContent = "center";
                 document.getElementById("option-display").style.alignItems = "center";
-                if((ai-1)<(us-1)){
+                if(ai<us){
                     document.getElementById("result-display").innerHTML =  "<div id='result' >You won 🥳</div>"
-                }else if((ai-1)>(us-1)){
+                }else if(ai>us){
                     document.getElementById("result-display").innerHTML =  "<div id='result'>You Lost 😕</div>"
                 }else{
                     document.getElementById("result-display").innerHTML =  "<div id='result'>Match is draw 😑</div>"
